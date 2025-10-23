@@ -5,7 +5,7 @@ A modern, interactive version of the classic Snakes & Ladders board game featuri
 ![Game Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
 ## 🎮 **Play Online**
-[🚀 **Click Here to Play the Game**](https://YOUR_USERNAME.github.io/enhanced-snakes-ladders-game/)
+[🚀 **Click Here to Play the Game**](https://reyr3v4cud83guy.github.io/enhanced-snakes-ladders-game/)
 
 ## ✨ **Features**
 
@@ -140,4 +140,5 @@ Contributions, issues, and feature requests are welcome!
 If you like this project, please give it a ⭐ on GitHub!
 
 ---
+
 *Made with 🎲 by ABDULLAHI OSMAN*
