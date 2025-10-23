@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Snakes &amp; Ladders</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Game Settings Panel -->
+      <div class="settings-panel" id="settingsPanel">
+        <h3><i class="fas fa-cog"></i> Game Settings</h3>
+        <div class="setting-group">
+          <label>Difficulty:</label>
+          <select id="difficulty">
+            <option value="easy">Easy (More Ladders)</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard (More Snakes)</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <label>Sound Effects:</label>
+          <input type="checkbox" id="soundToggle" checked />
+        </div>
+        <div class="setting-group">
+          <label>Player 1 Name:</label>
+          <input type="text" id="player1Name" value="You" maxlength="10" />
+        </div>
+        <div class="setting-group">
+          <label>Player 1 Color:</label>
+          <input type="color" id="player1Color" value="#ff3366" />
+        </div>
+        <button id="applySettings">Apply Settings</button>
+        <button id="closeSettings">Close</button>
+      </div>
+
+      <div class="wrapper">
+        <!-- Header with Stats -->
+        <div class="game-header">
+          <div class="player-stats">
+            <h1>Player: <span class="playerName"></span></h1>
+            <div class="stats">
+              <div class="stat">
+                <i class="fas fa-dice"></i>
+                <span>Rolls: <span id="rollCount">0</span></span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-trophy"></i>
+                <span>Score: <span id="score">0</span></span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-clock"></i>
+                <span>Time: <span id="gameTime">00:00</span></span>
+              </div>
+            </div>
+          </div>
+          <button id="settingsBtn" class="icon-btn" title="Settings">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
+
+        <h2 class="message">&nbsp;</h2>
+
+        <!-- Power-ups Display -->
+        <div class="powerups-display" id="powerupsDisplay">
+          <div class="powerup" id="doubleDice" title="Double Dice Roll">
+            <i class="fas fa-dice-six"></i>
+            <span class="powerup-count">0</span>
+          </div>
+          <div class="powerup" id="skipSnake" title="Skip Next Snake">
+            <i class="fas fa-shield-alt"></i>
+            <span class="powerup-count">0</span>
+          </div>
+          <div class="powerup" id="extraLadder" title="Extra Ladder Boost">
+            <i class="fas fa-arrow-up"></i>
+            <span class="powerup-count">0</span>
+          </div>
+        </div>
+
+        <!-- Enhanced Dice and Controls -->
+        <div class="buttonWrapper">
+          <div class="dice-container">
+            <div id="diceThrow" class="s6">
+              <div class="dice-glow"></div>
+              <div class="dice-number"></div>
+            </div>
+            <div class="dice-streak" id="diceStreak">
+              <span>Streak: 0</span>
+            </div>
+          </div>
+          <div class="game-controls">
+            <button id="reset" class="hidden">
+              <i class="fas fa-redo"></i> Play Again
+            </button>
+            <button id="pauseBtn" class="icon-btn" title="Pause Game">
+              <i class="fas fa-pause"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="board-container">
+          <canvas></canvas>
+          <div class="board-overlay" id="boardOverlay">
+            <!-- Special squares indicators will be added here -->
+          </div>
+        </div>
+
+        <!-- Achievements Panel -->
+        <div class="achievements" id="achievements">
+          <h4><i class="fas fa-medal"></i> Achievements</h4>
+          <div class="achievement-list" id="achievementList">
+            <!-- Achievements will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer with Author Credit -->
+      <footer class="game-footer">
+        <p>&copy; 2024 Enhanced Snakes & Ladders Game</p>
+        <p>Created by <strong>ABDULLAHI OSMAN</strong></p>
+      </footer>
+
+      <!-- Game Over Modal -->
+      <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+          <h2><i class="fas fa-crown"></i> Game Over!</h2>
+          <div class="winner-info">
+            <p class="winner-text"></p>
+            <div class="final-stats">
+              <div class="final-stat">
+                <i class="fas fa-dice"></i>
+                <span>Total Rolls: <span id="finalRolls">0</span></span>
+              </div>
+              <div class="final-stat">
+                <i class="fas fa-clock"></i>
+                <span>Time: <span id="finalTime">00:00</span></span>
+              </div>
+              <div class="final-stat">
+                <i class="fas fa-trophy"></i>
+                <span>Final Score: <span id="finalScore">0</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-buttons">
+            <button id="playAgainModal">
+              <i class="fas fa-redo"></i> Play Again
+            </button>
+            <button id="closeModal"><i class="fas fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="./script.js" defer></script>
+  </body>
+</html>
