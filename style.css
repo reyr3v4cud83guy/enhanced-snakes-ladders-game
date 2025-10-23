@@ -630,65 +630,577 @@ button:active {
   border-color: #33ff66;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Enhanced Responsive Design for All Devices */
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
   .wrapper {
-    padding: 20px;
-    margin: 10px;
+    max-width: 700px;
+    padding: 40px;
   }
-
+  
   canvas {
-    width: 400px;
-    height: 400px;
+    width: 550px;
+    height: 550px;
   }
-
+  
   .board-overlay {
-    width: 400px;
-    height: 400px;
+    width: 550px;
+    height: 550px;
   }
-
+  
+  #diceThrow {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .dice-number {
+    font-size: 3rem;
+  }
+  
   .stats {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .game-header {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .buttonWrapper {
-    flex-direction: column;
     gap: 20px;
   }
-
-  .powerups-display {
-    flex-wrap: wrap;
+  
+  .stat {
+    font-size: 1.4rem;
+    padding: 8px 15px;
   }
 }
 
-@media (max-width: 480px) {
+/* Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .wrapper {
+    max-width: 650px;
+    padding: 35px;
+  }
+  
   canvas {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
   }
-
+  
   .board-overlay {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
   }
+}
 
+/* Tablet Landscape (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .game-container {
+    padding: 15px;
+  }
+  
+  .wrapper {
+    max-width: 600px;
+    padding: 25px;
+    margin-bottom: 100px;
+  }
+  
+  canvas {
+    width: 450px;
+    height: 450px;
+  }
+  
+  .board-overlay {
+    width: 450px;
+    height: 450px;
+  }
+  
+  #diceThrow {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .dice-number {
+    font-size: 2.2rem;
+  }
+  
+  .stats {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .stat {
+    font-size: 1.1rem;
+    min-width: 120px;
+  }
+  
+  .powerups-display {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .powerup {
+    min-width: 55px;
+    padding: 8px;
+  }
+  
+  .powerup i {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablet Portrait (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .game-container {
+    padding: 10px;
+    min-height: 100vh;
+  }
+  
+  .wrapper {
+    max-width: 100%;
+    padding: 20px;
+    margin: 5px;
+    margin-bottom: 90px;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .player-stats {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .stats {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .stat {
+    font-size: 1rem;
+    padding: 4px 8px;
+    min-width: 100px;
+  }
+  
+  canvas {
+    width: 380px;
+    height: 380px;
+  }
+  
+  .board-overlay {
+    width: 380px;
+    height: 380px;
+  }
+  
   #diceThrow {
     width: 100px;
     height: 100px;
   }
-
-  .modal-content {
-    padding: 20px;
+  
+  .dice-number {
+    font-size: 2rem;
   }
-
+  
+  .dice-streak {
+    font-size: 1rem;
+    padding: 4px 12px;
+  }
+  
+  .buttonWrapper {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .game-controls {
+    gap: 8px;
+  }
+  
+  .icon-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6rem;
+  }
+  
+  .powerups-display {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .powerup {
+    min-width: 50px;
+    padding: 6px;
+  }
+  
+  .powerup i {
+    font-size: 1.6rem;
+  }
+  
+  .achievements {
+    padding: 12px;
+  }
+  
+  .achievement {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+  
+  .modal-content {
+    padding: 25px;
+    margin: 10px;
+  }
+  
+  .modal-content h2 {
+    font-size: 2.5rem;
+  }
+  
   .final-stats {
     flex-direction: column;
+    gap: 10px;
+  }
+  
+  .settings-panel {
+    min-width: 300px;
+    padding: 25px;
+    margin: 10px;
+  }
+}
+
+/* Mobile Landscape (376px - 480px) */
+@media (min-width: 376px) and (max-width: 480px) {
+  .wrapper {
+    padding: 15px;
+    margin: 5px;
+    margin-bottom: 85px;
+  }
+  
+  .player-stats h1 {
+    font-size: 2rem;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .stat {
+    font-size: 0.9rem;
+    padding: 3px 6px;
+    min-width: 90px;
+  }
+  
+  canvas {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .board-overlay {
+    width: 320px;
+    height: 320px;
+  }
+  
+  #diceThrow {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .dice-number {
+    font-size: 1.8rem;
+  }
+  
+  .dice-streak {
+    font-size: 0.9rem;
+    padding: 3px 10px;
+  }
+  
+  .powerups-display {
+    gap: 8px;
+  }
+  
+  .powerup {
+    min-width: 45px;
+    padding: 5px;
+  }
+  
+  .powerup i {
+    font-size: 1.4rem;
+  }
+  
+  .powerup-count {
+    width: 18px;
+    height: 18px;
+    font-size: 0.9rem;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    min-height: 35px;
+  }
+  
+  button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+  
+  .modal-content {
+    padding: 20px;
+    margin: 5px;
+  }
+  
+  .modal-content h2 {
+    font-size: 2rem;
+  }
+  
+  .winner-text {
+    font-size: 1.6rem;
+  }
+  
+  .settings-panel {
+    min-width: 280px;
+    padding: 20px;
+  }
+}
+
+/* Mobile Portrait (320px - 375px) */
+@media (max-width: 375px) {
+  .game-container {
+    padding: 5px;
+  }
+  
+  .wrapper {
+    padding: 12px;
+    margin: 2px;
+    margin-bottom: 80px;
+  }
+  
+  .game-header {
+    gap: 10px;
+  }
+  
+  .player-stats h1 {
+    font-size: 1.8rem;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .stat {
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    min-width: 80px;
+  }
+  
+  canvas {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .board-overlay {
+    width: 280px;
+    height: 280px;
+  }
+  
+  #diceThrow {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .dice-number {
+    font-size: 1.6rem;
+  }
+  
+  .dice-streak {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+  }
+  
+  .buttonWrapper {
+    gap: 12px;
+  }
+  
+  .powerups-display {
+    gap: 6px;
+    margin: 10px 0;
+  }
+  
+  .powerup {
+    min-width: 40px;
+    padding: 4px;
+  }
+  
+  .powerup i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+  }
+  
+  .powerup-count {
+    width: 16px;
+    height: 16px;
+    font-size: 0.8rem;
+    top: -6px;
+    right: -6px;
+  }
+  
+  .message {
+    font-size: 1rem;
+    padding: 6px 12px;
+    min-height: 30px;
+  }
+  
+  button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+  
+  .icon-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .achievements {
+    padding: 10px;
+  }
+  
+  .achievements h4 {
+    font-size: 1.2rem;
+  }
+  
+  .achievement {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+  
+  .modal-content {
+    padding: 15px;
+    margin: 5px;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .winner-text {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .final-stat {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .final-stat i {
+    font-size: 1.2rem;
+  }
+  
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .settings-panel {
+    min-width: 260px;
+    padding: 15px;
+    margin: 5px;
+  }
+  
+  .setting-group {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  
+  .setting-group select,
+  .setting-group input[type="text"] {
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch-friendly enhancements for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  #diceThrow {
+    transform: none;
+  }
+  
+  #diceThrow:hover {
+    transform: scale(1.05);
+  }
+  
+  .powerup:hover {
+    transform: translateY(-2px);
+  }
+  
+  button:hover {
+    transform: translateY(-1px);
+  }
+  
+  .icon-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Larger touch targets for better accessibility */
+  #diceThrow {
+    min-width: 80px;
+    min-height: 80px;
+  }
+  
+  .powerup {
+    min-width: 50px;
+    min-height: 50px;
+  }
+  
+  .icon-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  button {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (orientation: landscape) and (max-height: 500px) {
+  .wrapper {
+    margin-bottom: 60px;
+  }
+  
+  .game-header {
+    margin-bottom: 10px;
+  }
+  
+  .stats {
+    gap: 5px;
+  }
+  
+  .powerups-display {
+    margin: 8px 0;
+  }
+  
+  .achievements {
+    padding: 8px;
+  }
+  
+  .game-footer {
+    padding: 5px 15px;
+  }
+  
+  .game-footer p {
+    font-size: 1rem;
+    margin: 1px 0;
   }
 }
 

@@ -8,6 +8,7 @@ class EnhancedSnakesAndLadders {
     this.setupEventListeners();
     this.initializeGame();
     this.startGameTimer();
+    this.setupMobileEnhancements();
   }
 
   initializeElements() {
@@ -865,6 +866,82 @@ class EnhancedSnakesAndLadders {
 
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.3);
+  }
+
+  // Mobile-specific enhancements
+  setupMobileEnhancements() {
+    // Prevent zoom on double tap
+    let lastTouchEnd = 0;
+    document.addEventListener(
+      "touchend",
+      function (event) {
+        const now = new Date().getTime();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
+        lastTouchEnd = now;
+      },
+      false
+    );
+
+    // Add touch feedback
+    const touchElements = [
+      this.diceDisplay,
+      ...document.querySelectorAll(".powerup"),
+      ...document.querySelectorAll("button"),
+    ];
+
+    touchElements.forEach((element) => {
+      element.addEventListener("touchstart", () => {
+        element.style.transform = "scale(0.95)";
+      });
+
+      element.addEventListener("touchend", () => {
+        setTimeout(() => {
+          element.style.transform = "";
+        }, 150);
+      });
+    });
+
+    // Add swipe gestures for mobile
+    this.setupSwipeGestures();
+  }
+
+  setupSwipeGestures() {
+    let startX, startY, endX, endY;
+
+    this.canvas.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    this.canvas.addEventListener("touchend", (e) => {
+      endX = e.changedTouches[0].clientX;
+      endY = e.changedTouches[0].clientY;
+
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Detect swipe gestures
+      if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          // Horizontal swipe
+          if (deltaX > 0) {
+            // Swipe right - roll dice
+            if (this.activePlayer === this.player1) this.rollDice();
+          } else {
+            // Swipe left - open settings
+            this.toggleSettings();
+          }
+        } else {
+          // Vertical swipe
+          if (deltaY > 0) {
+            // Swipe down - pause
+            this.togglePause();
+          }
+        }
+      }
+    });
   }
 }
 
